@@ -3,5 +3,6 @@ const app = express();
 
 app.get("/", (req, res) => res.send({ test : "hello!"}));
 
-const port=process.env.port || 5000;
-app.listen(port);
+app.listen(process.env.PORT || 5000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
