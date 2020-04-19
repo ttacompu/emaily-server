@@ -8,7 +8,10 @@ require("./models/User")
 require("./services/passport");
 const routes = require("./routes/authRoute");
 
-mongoose.connect(keys.mongoURI, {useNewUrlParser : true, useUnifiedTopology: true});
+mongoose.connect(keys.mongoURI, {useNewUrlParser : true, useUnifiedTopology: true, useCreateIndex: true})
+        .then(() => console.log( 'Database Connected' ))
+        .catch(console.log)
+        
 const app = express();
 
 app.use( cookieSession({
