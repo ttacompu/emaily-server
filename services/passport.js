@@ -11,7 +11,7 @@ passport.serializeUser((user, done) =>{
 passport.deserializeUser( (id, done ) =>{
    User.findById(id).then( user => {
       done(null, user );
-   } )
+   } ).catch(console.log)
 })
 
 
@@ -30,5 +30,5 @@ passport.use(new GoogleStrategy({
             .then(user => done(null, user));
 
         }
-     })
+     }).catch(console.log)
   }));
